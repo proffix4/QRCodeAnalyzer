@@ -5,8 +5,6 @@
 
 ![srcreenshot](screenshot2.png)
 
-https://vestnik-energy.tou.edu.kz/storage/articles/82181541a05e1679c878cddb8c4b522d/%D0%A2%D0%B0%D0%BB%D0%B8%D0%BF%D0%BE%D0%B2_%D0%A1._%D0%9D..pdf
-
 MIT License
 
 Copyright (c) 2024 Talipov S.N.
