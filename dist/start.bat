@@ -1,0 +1,2 @@
+@start /b QRCodeAnalyzer.exe
+
