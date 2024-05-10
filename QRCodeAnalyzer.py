@@ -22,73 +22,76 @@ class AlignDelegate(PyQt5.QtWidgets.QStyledItemDelegate):
 class STARTER(QDialog):
     def __init__(self):
         super(STARTER, self).__init__()
-        uic.loadUi('qrcodeanalyzer.ui', self)
-        self.setWindowIcon(QtGui.QIcon('logo.png'))
-        self.qRadioButtonLong.toggled.connect(self.qRadioButtonLongToggled)
-        self.qRadioButtonShort.toggled.connect(self.qRadioButtonShortToggled)
-        self.qRadioButtonShort_2.toggled.connect(self.qRadioButtonShortToggled)
-        self.qDateTimeEditBegin.dateChanged.connect(self.qDateTimeEditBeginDateChanged)
-        self.qDateTimeEditEnd.dateChanged.connect(self.qDateTimeEditEndDateChanged)
-        self.qDateTimeEditBegin.timeChanged.connect(self.qDateTimeEditBeginTimeChanged)
-        self.qDateTimeEditEnd.timeChanged.connect(self.qDateTimeEditEndTimeChanged)
+        try:
+            uic.loadUi('qrcodeanalyzer.ui', self)
+            self.setWindowIcon(QtGui.QIcon('logo.png'))
+            self.qRadioButtonLong.toggled.connect(self.qRadioButtonLongToggled)
+            self.qRadioButtonShort.toggled.connect(self.qRadioButtonShortToggled)
+            self.qRadioButtonShort_2.toggled.connect(self.qRadioButtonShortToggled)
+            self.qDateTimeEditBegin.dateChanged.connect(self.qDateTimeEditBeginDateChanged)
+            self.qDateTimeEditEnd.dateChanged.connect(self.qDateTimeEditEndDateChanged)
+            self.qDateTimeEditBegin.timeChanged.connect(self.qDateTimeEditBeginTimeChanged)
+            self.qDateTimeEditEnd.timeChanged.connect(self.qDateTimeEditEndTimeChanged)
 
-        self.qTableWidgetLong.setColumnWidth(0, 80)  # Дата
-        self.qTableWidgetLong.setColumnWidth(1, 80)  # Время
-        self.qTableWidgetLong.setColumnWidth(2, 660)  # ФИО
-        delegate = AlignDelegate(self.qTableWidgetLong)
-        self.qTableWidgetLong.setItemDelegateForColumn(0, delegate)
-        self.qTableWidgetLong.setItemDelegateForColumn(1, delegate)
-        # self.qTableWidgetLong.setItemDelegateForColumn(2, delegate)
+            self.qTableWidgetLong.setColumnWidth(0, 80)  # Дата
+            self.qTableWidgetLong.setColumnWidth(1, 80)  # Время
+            self.qTableWidgetLong.setColumnWidth(2, 660)  # ФИО
+            delegate = AlignDelegate(self.qTableWidgetLong)
+            self.qTableWidgetLong.setItemDelegateForColumn(0, delegate)
+            self.qTableWidgetLong.setItemDelegateForColumn(1, delegate)
+            # self.qTableWidgetLong.setItemDelegateForColumn(2, delegate)
 
-        self.qTableWidgetShort.setColumnWidth(0, 660)  # ФИО
-        self.qTableWidgetShort.setColumnWidth(1, 160)  # Количество посещений
+            self.qTableWidgetShort.setColumnWidth(0, 660)  # ФИО
+            self.qTableWidgetShort.setColumnWidth(1, 160)  # Количество посещений
 
-        self.qComboBoxLesson.currentIndexChanged.connect(self.qComboBoxLessonCurrentIndexChanged)
-        self.qComboBoxGroup.currentIndexChanged.connect(self.qComboBoxGroupCurrentIndexChanged)
+            self.qComboBoxLesson.currentIndexChanged.connect(self.qComboBoxLessonCurrentIndexChanged)
+            self.qComboBoxGroup.currentIndexChanged.connect(self.qComboBoxGroupCurrentIndexChanged)
 
-        self.qPushButtonExport.clicked.connect(self.qPushButtonExportClicked)
-        self.qLineEditFamFilter.textChanged.connect(self.qLineEditFamFilterTextChanged)
+            self.qPushButtonExport.clicked.connect(self.qPushButtonExportClicked)
+            self.qLineEditFamFilter.textChanged.connect(self.qLineEditFamFilterTextChanged)
 
-        self.qTableWidgetShort.cellDoubleClicked.connect(self.qTableWidgetShortCellDoubleClicked)
-        self.qTableWidgetLong.cellDoubleClicked.connect(self.qTableWidgetLongCellDoubleClicked)
+            self.qTableWidgetShort.cellDoubleClicked.connect(self.qTableWidgetShortCellDoubleClicked)
+            self.qTableWidgetLong.cellDoubleClicked.connect(self.qTableWidgetLongCellDoubleClicked)
 
-        self.qPushButtonFamFilterClear.clicked.connect(self.qPushButtonFamFilterClearClicked)
+            self.qPushButtonFamFilterClear.clicked.connect(self.qPushButtonFamFilterClearClicked)
 
-        self.qPushButtonExit.clicked.connect(self.close)
+            self.qPushButtonExit.clicked.connect(self.close)
 
-        # print(datetime.datetime.now().strftime('%d.%m.%Y %H:%M:%S'))
+            # print(datetime.datetime.now().strftime('%d.%m.%Y %H:%M:%S'))
 
-        dtts = data_processing_engine.getMinMaxDate()
-        d1 = dtts[0][0]
-        d2 = dtts[0][1]
-        t1 = dtts[0][2]
-        t2 = dtts[0][3]
+            dtts = data_processing_engine.getMinMaxDate()
+            d1 = dtts[0][0]
+            d2 = dtts[0][1]
+            t1 = dtts[0][2]
+            t2 = dtts[0][3]
 
-        minYear = int(d1.split("-")[0])
-        minMonth = int(d1.split("-")[1])
-        minDay = int(d1.split("-")[2])
+            minYear = int(d1.split("-")[0])
+            minMonth = int(d1.split("-")[1])
+            minDay = int(d1.split("-")[2])
 
-        maxYear = int(d2.split("-")[0])
-        maxMonth = int(d2.split("-")[1])
-        maxDay = int(d2.split("-")[2])
+            maxYear = int(d2.split("-")[0])
+            maxMonth = int(d2.split("-")[1])
+            maxDay = int(d2.split("-")[2])
 
-        minHour = int(t1.split(":")[0])
-        minMin = int(t1.split(":")[1])
-        minSec = int(t1.split(":")[2])
+            minHour = int(t1.split(":")[0])
+            minMin = int(t1.split(":")[1])
+            minSec = int(t1.split(":")[2])
 
-        maxHour = int(t2.split(":")[0])
-        maxMin = int(t2.split(":")[1])
-        maxSec = int(t2.split(":")[2])
+            maxHour = int(t2.split(":")[0])
+            maxMin = int(t2.split(":")[1])
+            maxSec = int(t2.split(":")[2])
 
-        self.qDateTimeEditBegin.setDate(QDate(minYear, minMonth, minDay))  # год, месяц, число
-        self.qDateTimeEditEnd.setDate(QDate(maxYear, maxMonth, maxDay))  # год, месяц, число
-        self.qDateTimeEditBegin.setTime(QTime(minHour, minMin, minSec))  # часы, минуты, секунды
-        self.qDateTimeEditEnd.setTime(QTime(maxHour, maxMin, maxSec))  # часы, минуты, секунды
+            self.qDateTimeEditBegin.setDate(QDate(minYear, minMonth, minDay))  # год, месяц, число
+            self.qDateTimeEditEnd.setDate(QDate(maxYear, maxMonth, maxDay))  # год, месяц, число
+            self.qDateTimeEditBegin.setTime(QTime(minHour, minMin, minSec))  # часы, минуты, секунды
+            self.qDateTimeEditEnd.setTime(QTime(maxHour, maxMin, maxSec))  # часы, минуты, секунды
 
-        diss = data_processing_engine.diss
-        self.qComboBoxLesson.clear()
-        for d in diss:
-            self.qComboBoxLesson.addItems(d)
+            diss = data_processing_engine.diss
+            self.qComboBoxLesson.clear()
+            for d in diss:
+                self.qComboBoxLesson.addItems(d)
+        except:
+            pass
 
     def qComboBoxLessonCurrentIndexChanged(self):
         cdis = str(self.qComboBoxLesson.currentText())

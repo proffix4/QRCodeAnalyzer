@@ -75,10 +75,10 @@ def getNumAttendance(dis, gr, d1, d2, t1, t2, sortByName=True, famFilter=""):
     """Получение количества посещений студентов для указанной дисциплины, группы, дат и времени"""
     mma = getMaxNumAttendance(dis, gr, d1, d2, t1, t2)  # Максимальное количество посещений
     if mma == 0:  # Если максимальное количество посещений равно 0, то не считаем проценты
-        sql1 = "SELECT fio || ' (' ||  gr || ')', count(dis) as c "
+        sql1 = "SELECT fio || ' (' ||  gr || ')', count(dis) as c, count(dis) as c1 "
     else:  # Иначе считаем проценты
         sql1 = "SELECT fio || ' (' ||  gr || ')', count(dis)  ||  ' (' || (100 * count(dis) / " + str(
-            mma) + ")  || '%)'  as c "
+            mma) + ")  || '%)'  as c, count(dis) as c1 "
 
     con = sqlite3.connect("data.db")  # Открываем базу данных
     cur = con.cursor()  # Создаем объект курсора
@@ -93,9 +93,10 @@ def getNumAttendance(dis, gr, d1, d2, t1, t2, sortByName=True, famFilter=""):
                                                                                                                                                                                  " GROUP by fio, gr, dis"
     )
     if not sortByName:
-        sql = sql + " ORDER by c DESC, fio"
+        sql = sql + " ORDER by c1 DESC, fio"
     else:
         sql = sql + " ORDER by fio"
+
     res = cur.execute(sql).fetchall()  # Выполняем запрос
     con.close()  # Закрываем базу данных
     return res  # Возвращаем количество посещений
