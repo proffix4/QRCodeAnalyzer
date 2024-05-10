@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
 # coding=utf-8
+
 import datetime
 import os
+import platform
 import sys
 
 import xlsxwriter  # Это модуль Python для записи файлов в формате Excel 2007+ XLSX
@@ -33,16 +36,16 @@ class STARTER(QDialog):
             self.qDateTimeEditBegin.timeChanged.connect(self.qDateTimeEditBeginTimeChanged)
             self.qDateTimeEditEnd.timeChanged.connect(self.qDateTimeEditEndTimeChanged)
 
-            self.qTableWidgetLong.setColumnWidth(0, 80)  # Дата
-            self.qTableWidgetLong.setColumnWidth(1, 80)  # Время
+            self.qTableWidgetLong.setColumnWidth(0, 95)  # Дата
+            self.qTableWidgetLong.setColumnWidth(1, 85)  # Время
             self.qTableWidgetLong.setColumnWidth(2, 660)  # ФИО
             delegate = AlignDelegate(self.qTableWidgetLong)
             self.qTableWidgetLong.setItemDelegateForColumn(0, delegate)
             self.qTableWidgetLong.setItemDelegateForColumn(1, delegate)
             # self.qTableWidgetLong.setItemDelegateForColumn(2, delegate)
 
-            self.qTableWidgetShort.setColumnWidth(0, 660)  # ФИО
-            self.qTableWidgetShort.setColumnWidth(1, 160)  # Количество посещений
+            self.qTableWidgetShort.setColumnWidth(0, 650)  # ФИО
+            self.qTableWidgetShort.setColumnWidth(1, 185)  # Количество посещений
 
             self.qComboBoxLesson.currentIndexChanged.connect(self.qComboBoxLessonCurrentIndexChanged)
             self.qComboBoxGroup.currentIndexChanged.connect(self.qComboBoxGroupCurrentIndexChanged)
@@ -264,7 +267,12 @@ class STARTER(QDialog):
 
             book.close()
 
-            sf = os.system("start " + my_file)
+            current_os = platform.system()
+
+            if current_os == "Linux":
+                sf = os.system("xdg-open " + my_file)
+            else:
+                sf = os.system("start " + my_file)
             if sf != 0:
                 raise Exception()
         except:

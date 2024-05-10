@@ -10,23 +10,23 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>850</height>
+    <height>810</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>900</width>
-    <height>850</height>
+    <height>810</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>900</width>
-    <height>850</height>
+    <height>810</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Анализатор данных мобильного сканера QR-кодов для контроля посещаемости студентов, by TSNSoft, 2024, ver. 7</string>
+   <string>Анализатор данных мобильного сканера QR-кодов для контроля посещаемости студентов, TSNSoft, 2024, ver. 8</string>
   </property>
   <widget class="QGroupBox" name="qGroupBoxDate">
    <property name="enabled">
@@ -34,9 +34,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>400</x>
      <y>10</y>
-     <width>231</width>
+     <width>251</width>
      <height>121</height>
     </rect>
    </property>
@@ -51,8 +51,8 @@
      <rect>
       <x>20</x>
       <y>30</y>
-      <width>47</width>
-      <height>13</height>
+      <width>61</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -65,10 +65,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>71</width>
-      <height>16</height>
+      <x>10</x>
+      <y>80</y>
+      <width>81</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -81,11 +81,16 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>20</y>
-      <width>120</width>
+      <x>99</x>
+      <y>30</y>
+      <width>131</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="dateTime">
      <datetime>
@@ -121,11 +126,16 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>70</y>
-      <width>120</width>
+      <x>100</x>
+      <y>80</y>
+      <width>131</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="dateTime">
      <datetime>
@@ -154,7 +164,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>401</width>
+     <width>361</width>
      <height>111</height>
     </rect>
    </property>
@@ -169,9 +179,14 @@
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>371</width>
+      <width>331</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="qLabelLesson">
@@ -226,7 +241,7 @@
      <x>20</x>
      <y>140</y>
      <width>861</width>
-     <height>631</height>
+     <height>571</height>
     </rect>
    </property>
    <property name="layoutDirection">
@@ -263,10 +278,10 @@
   <widget class="QGroupBox" name="qGroupBoxType">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>670</x>
      <y>10</y>
-     <width>201</width>
-     <height>111</height>
+     <width>211</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="title">
@@ -275,10 +290,10 @@
    <widget class="QRadioButton" name="qRadioButtonLong">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>30</y>
-      <width>82</width>
-      <height>17</height>
+      <width>151</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -291,14 +306,14 @@
    <widget class="QRadioButton" name="qRadioButtonShort">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>70</y>
-      <width>191</width>
-      <height>17</height>
+      <x>10</x>
+      <y>90</y>
+      <width>181</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Краткий (по посещаемости)</string>
+     <string>Краткий (по посещ.)</string>
     </property>
     <property name="checked">
      <bool>false</bool>
@@ -307,10 +322,10 @@
    <widget class="QRadioButton" name="qRadioButtonShort_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>171</width>
-      <height>17</height>
+      <x>10</x>
+      <y>60</y>
+      <width>191</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -330,7 +345,7 @@
      <x>20</x>
      <y>140</y>
      <width>861</width>
-     <height>631</height>
+     <height>571</height>
     </rect>
    </property>
    <property name="horizontalScrollBarPolicy">
@@ -368,8 +383,8 @@
   <widget class="QPushButton" name="qPushButtonExport">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>790</y>
+     <x>40</x>
+     <y>740</y>
      <width>231</width>
      <height>41</height>
     </rect>
@@ -381,8 +396,8 @@
   <widget class="QPushButton" name="qPushButtonExit">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>790</y>
+     <x>710</x>
+     <y>740</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -394,9 +409,9 @@
   <widget class="QLineEdit" name="qLineEditFamFilter">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>810</y>
-     <width>261</width>
+     <x>300</x>
+     <y>760</y>
+     <width>331</width>
      <height>20</height>
     </rect>
    </property>
@@ -407,11 +422,16 @@
   <widget class="QLabel" name="qLabelFamFilter">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>770</y>
-     <width>341</width>
+     <x>290</x>
+     <y>720</y>
+     <width>391</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Фильтр по фамилии (или пустое значение),&lt;br&gt;двойной щелчёк по фамилии в таблице для выбора фамилии</string>
@@ -426,8 +446,8 @@
   <widget class="QPushButton" name="qPushButtonFamFilterClear">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>810</y>
+     <x>650</x>
+     <y>760</y>
      <width>21</width>
      <height>23</height>
     </rect>
